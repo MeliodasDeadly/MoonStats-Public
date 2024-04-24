@@ -1,0 +1,19 @@
+{
+    "prefix": "",
+    "BaseURL": "",
+    "ImageURL": "",
+    "OwnerID": "",
+    "AdminID": ["",""],
+    "ChatGPTApiKey": "",
+    "usedatabase": true,
+
+    "host": "",
+    "user": "",
+    "database": "",
+    "password": "",
+    
+    "scphost": "",
+    "scpuser": "",
+    "scpdatabase": "",
+    "scppassword": ""
+}

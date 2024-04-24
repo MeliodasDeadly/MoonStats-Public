@@ -1,0 +1,48 @@
+{
+    "type": "module",
+    "lint-staged": {
+        "*.ts": "eslint --cache --fix",
+        "*.{ts,css,md}": "prettier --write"
+    },
+    "scripts": {
+        "prepare": "husky install",
+        "lint": "eslint --cache --fix src",
+        "prettier": "prettier --write src",
+        "compile": "tsc && npm run copy",
+        "clean": "rimraf dist/",
+        "copy": "npx copyfiles -u 1 src/.env src/**/*.json dist/",
+        "build": "npm run lint && npm run prettier && npm run clean && npm run compile",
+        "start": "npm run compile && npx copyfiles -u 1 src/.env src/**/*.json dist/ && cd dist && node . && cd ..",
+        "init": "npm install && npm run prepare",
+        "dev": "npm run clean && tsc-watch --onSuccess \"npm run start\"",
+        "prod": "npm run build && npm run start"
+    },
+    "dependencies": {
+        "@discordjs/rest": "^2.0.1",
+        "add": "^2.0.6",
+        "axios": "^1.6.8",
+        "discord-timestamps": "^0.1.4",
+        "discord.js": "^14.13.0",
+        "dotenv": "^16.3.1",
+        "ms": "^2.1.3",
+        "mysql2": "^3.6.1",
+        "node-json-db": "^2.2.0",
+        "openai": "^4.12.4",
+        "qrcode": "^1.5.3"
+    },
+    "devDependencies": {
+        "@tsconfig/node20": "^20.1.1",
+        "@types/ms": "^0.7.33",
+        "@types/node": "^20.6.4",
+        "@types/qrcode": "^1.5.4",
+        "@typescript-eslint/eslint-plugin": "^6.4.1",
+        "@typescript-eslint/parser": "^6.4.1",
+        "eslint": "^8.47.0",
+        "eslint-config-prettier": "^9.0.0",
+        "lint-staged": "^14.0.1",
+        "prettier": "^3.0.2",
+        "rimraf": "^5.0.1",
+        "tsc-watch": "^6.0.4",
+        "typescript": "^5.1.6"
+    }
+}
